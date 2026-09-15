@@ -1,0 +1,8 @@
+// Offline checks for generated exercises and the complete diagnostic path.
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const source=fs.readFileSync(__dirname+'/app.js','utf8').split("document.querySelector('#homeBtn')")[0];
+const context={document:{querySelector:()=>({textContent:'',innerHTML:'',focus(){},append(){},querySelectorAll:()=>[]}),createElement:()=>({addEventListener(){}})},localStorage:{getItem:()=>null,setItem(){}},window:{scrollTo(){}},URL,Blob,Math,Date,console};vm.createContext(context);vm.runInContext(source,context);const units=vm.runInContext('units',context);
+assert.equal(units.length,16);
+for(const u of units)for(let i=0;i<300;i++){let q=u.make();assert.equal(q.options.length,3,u.name);assert.equal(new Set(q.options).size,3,u.name+': duplicate answers');assert(q.options.includes(q.answer),u.name+': answer missing');assert(q.prompt&&q.why&&u.intro&&u.example.length>=2,u.name+': explanation missing')}
+const student={name:'Test',created:new Date().toISOString(),completed:[],attempts:[],placement:null};vm.runInContext('person="test"; db.students.test={name:"Test",completed:[],attempts:[],placement:null}',context);vm.runInContext('quiz={index:16,answers:[false,...Array(15).fill(true)],tasks:[],chosen:null};finishDiagnostic()',context);assert.equal(vm.runInContext('db.students.test.placement',context),0);vm.runInContext('quiz={index:16,answers:Array(16).fill(true),tasks:[],chosen:null};finishDiagnostic()',context);assert.equal(vm.runInContext('db.students.test.placement',context),15);
+console.log('Passed: 4,800 generated questions and diagnostic placement boundaries.');
