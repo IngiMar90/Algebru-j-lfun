@@ -14,14 +14,18 @@ Opnaðu `index.html` í vafra til að prófa án uppsetningar. Fyrir PWA, vistun
 
 - Upphafskönnun: ein spurning fyrir hvert af 16 stigum; þrjú svarmöguleikar og „Veit ekki“.
 - Tillaga: fyrsta stig sem nemandi svarar ekki rétt. Nemandi getur samt opnað hvaða stig sem er.
-- Hvert stig: útskýring → sýnidæmi með skrefum → 10 breytileg dæmi.
+- Hvert stig: útskýring → sýnidæmi með skrefum → 10 breytileg dæmi. Frjáls æfing býður upp á ótakmarkaðan fjölda dæma.
 - Viðmið: 8 rétt af 10 til að ljúka stigi. Ný æfing myndar nýjar tölur.
-- Vísbendingar og lausnarskýringar eru aðgengilegar við hvert dæmi.
+- Vísbendingar og lausnarskýringar eru aðgengilegar við hvert dæmi. Ný dæmi forðast nýlegar endurtekningar fyrir viðkomandi nemanda.
 
 ## Niðurstöður
 
-Framvinda er vistuð í `localStorage` vafrans og kennarasvæðið leyfir að sækja CSV. Enginn reikningur eða miðlæg gagnageymsla er notuð: gögn milli tölva samstillast ekki og geta glatast ef vafragögnum er eytt. CSV-skrána þarf að vista sérstaklega ef óskað er eftir varanlegri skráningu.
+Framvinda er vistuð sjálfkrafa í `localStorage` vafrans undir nafni nemandans, einnig í miðri æfingu. Í kennarasvæði má sækja CSV eða JSON-afrit og flytja JSON-afrit inn á annað tæki. Enginn reikningur eða miðlæg gagnageymsla er notuð: gögn milli tölva samstillast ekki og geta glatast ef vafragögnum er eytt. CSV-skrána þarf að vista sérstaklega ef óskað er eftir varanlegri skráningu.
 
 ## Skrár
 
 `index.html`, `style.css` og `app.js` keyra forritið án pakkastjóra. `sw.js` og `manifest.webmanifest` gera það að uppsetjanlegu vefappi þegar það er birt með HTTPS.
+
+## Uppsetning sem app
+
+Opnaðu GitHub Pages-slóðina í Chrome eða Edge og ýttu á „Setja upp app“, eða veldu „Install app“ í valmynd vafrans. Á iPhone/iPad: opnaðu síðuna í Safari → Deila → Bæta við heimaskjá. Uppsett app geymir gögn áfram í sama vafrasniði; flutningur milli tækja krefst JSON-afrits.
