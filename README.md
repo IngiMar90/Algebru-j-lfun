@@ -28,4 +28,4 @@ Framvinda er vistuð sjálfkrafa í `localStorage` vafrans undir nafni nemandans
 
 ## Uppsetning sem app
 
-Opnaðu GitHub Pages-slóðina í Chrome eða Edge og ýttu á „Setja upp app“, eða veldu „Install app“ í valmynd vafrans. Á iPhone/iPad: opnaðu síðuna í Safari → Deila → Bæta við heimaskjá. Uppsett app geymir gögn áfram í sama vafrasniði; flutningur milli tækja krefst JSON-afrits.
+Opnaðu GitHub Pages-slóðina í Chrome eða Edge og ýttu á „Setja upp app“, eða veldu „Install app“ í valmynd vafrans. Á iPhone/iPad: vistaðu JSON-afrit í kennarasvæði áður en þú setur appið upp, síðan Safari → Deila → Bæta við heimaskjá. Uppsett app á iOS getur notað aðskilda geymslu; flyttu afritið inn þar ef niðurstöður vantar. Flutningur milli tækja eða vafraprófíla krefst einnig JSON-afrits.
